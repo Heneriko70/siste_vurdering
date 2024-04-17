@@ -3,18 +3,27 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Hovedside Henrik Berg-Hansens prosjekter</title>
+    <title>Hovedside</title>
     <link rel="stylesheet" href="hovedside.css">
 </head>
 
 <body>
-    <div id="infobar topp.">
+    <div id="infobartopp">
         <div id="hjemknapp">
-            <p>hei</p>
+            <img src="hus.svg" alt="Hjemknapp" id="hjemknappbilde">
         </div>
-
+    </div>
+    <div id="valgside">
+    <h1>Vil du se en nettside om personvern eller alle sider jeg har lagd så langt i år?</h1>
+    <button id="personvern">Personvern</button>
+    <button id="alleSider">Alle sider</button>
+    </div>
+    <div id="personvernside" style="display:none">
+        <h1>Personvern</h1>
     </div>
 
+<script src="hovedside.js"></script>
+<script src="hjemknapp.js"></script>
 </body>
 
 </html>
