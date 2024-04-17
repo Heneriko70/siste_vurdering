@@ -18,15 +18,26 @@ body {
     height: 10%;
     position: fixed;
 }
+.hovedoverskrift {
+   font-size:3em
+
+}
 
 #valgside {
+    justify-content: center;
     padding-top: 3%;
-    width: 100%;
+    width: 80%;
     height: 92.5%;
     background-color: #f1f1f1;
     text-align: center;
     display: flex;
     flex-direction: column;
+    align-items: center;
+}
+#valgknapper {
+    width: 100%;
+    height: 70%;
+    background-color: #f1f1f1;
 }
 
 #personvern {
@@ -34,13 +45,10 @@ body {
     height: 30%;
     padding: 2%;
     background-color: #f1f1f1;
+    font-size: 1.5em;
 }
 
-#valgknapper {
-    width: 100%;
-    height: 70%;
-    background-color: #f1f1f1;
-}
+
 
 #alleSiderKnapp {
     width: 50%;
@@ -48,6 +56,7 @@ body {
     padding: 2%;
     margin-top: 1%;
     background-color: #f1f1f1;
+    font-size: 1.5em;
 }
 
 #alleSider {
