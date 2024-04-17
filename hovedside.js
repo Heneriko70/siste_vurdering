@@ -2,7 +2,8 @@ valgsideEl=document.querySelector("#valgside");
 personvernEL=document.querySelector("#personvern");
 personvernsideEL=document.querySelector("#personvernside");
 alleSiderEl=document.querySelector("#alleSider");
-alleSiderEl.addEventListener("click", tilAlleSider);
+alleSiderKnappEl=document.querySelector("#alleSiderKnapp");
+alleSiderKnappEl.addEventListener("click", tilAlleSider);
 personvernEL.addEventListener("click", tilPersonvern);
 
 function tilPersonvern(){
@@ -13,6 +14,6 @@ function tilPersonvern(){
 function tilAlleSider(){
     personvernsideEL.style.display="none";
     valgsideEl.style.display="none";
-    alleSiderEl.style.display="none";
+    alleSiderEl.style.display="block";
     console.log("Alle sider");
 }
