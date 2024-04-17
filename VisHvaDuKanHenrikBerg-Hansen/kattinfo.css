@@ -1,0 +1,70 @@
+body {
+    background-color: white;
+    font-family: sans-serif;
+    margin: 10px;
+}
+
+.overskrift-boks {
+    position: relative;
+    text-align: center;
+    color: white;
+}
+
+.overskrift {
+    position: absolute;
+    top: 30%;
+    left: 20%;
+    transform: translate(-50%, -50%);
+    font-size: 8em;
+    color: #333
+}
+
+.ramme {
+    width: 1300px;
+    height: 1800px;
+    background-color: gainsboro;
+    margin: 20px;
+    display: flex;
+    flex-direction: column-reverse;
+    flex-wrap: wrap;
+    border-radius: 25px;
+}
+
+.infoboks {
+    margin: 15px;
+    flex-direction: column;
+    border-radius: 25px;
+}
+
+.infoboks-overskrift {
+    font-size: 2.5em;
+    margin: 15px;
+}
+
+.infoboks-skrift {
+    font-size: 1.6em;
+    margin: 15px;
+}
+
+.kildeskrift {
+    font-size: 0.8em;
+    margin: 15px;
+}
+
+#infoboks1 {
+    background-color: whitesmoke;
+    width: 800px;
+    height: 600px;
+}
+
+#infoboks2 {
+    background-color: lightcyan;
+    width: 800px;
+    height: 400px;
+}
+
+#infoboks3 {
+    background-color: lightgoldenrodyellow;
+    width: 800px;
+    height: 500px;
+}

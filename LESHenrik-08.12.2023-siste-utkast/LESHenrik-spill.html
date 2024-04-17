@@ -1,0 +1,293 @@
+Alle bilder i denne oppgaven er lagd med AI og paint av meg selv
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Spill</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="LESHenrik-spill.css">
+
+<body>
+    <div id="startmeny">
+        <div id="startmenytekst">
+            <div id="hovedoverskrift">
+                <h1>Velkommen til spillet!</h1>
+            </div>
+            <div class="info">
+                <h2>Kort info om spillet:</h2>
+                <p>Spillet går ut på å drepe monstere og om å nå 30 poeng innen tiden er ute</p>
+                <p>Å drepe monstere med riktig våpen gir 1 poeng</p>
+                <p>Å bruke feil våpen mot en av monsterene tar 1 livspoeng</p>
+            </div>
+            <div class="info">
+                <h2>Informasjon om monstere</h2>
+                <p>Grønnsaksmonsteret tar kun skade av godteripistolen</p>
+                <p>Skjelletmonsteret tar kun skade av laservåpenet</p>
+                <p>Dragemonsteret tar kun skade av magivåpenet</p>
+            </div>
+            <div class="info">
+                <h2>Velg nivå:</h2>
+                <p>Lett nivå har du 1 minutt og 10 liv</p>
+                <p>Middels nivå har du 1 minutt og 5 liv</p>
+                <p>Vanskelig nivå har du 1 minutt og 1 liv</p>
+            </div>
+        </div>
+        <div id="startmenyknapper">
+            <div id="lettnivaa">
+                <h1>Lettnivå</h1>
+            </div>
+            <div id="middelsnivaa">
+                <h1>Middelsnivå</h1>
+            </div>
+            <div id="vanskelignivaa">
+                <h1>Vanskeligste nivå</h1>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div id="skjerm" style="display: none;">
+        <div id="infobar">
+            <div id="livspoengboks">
+                <h2 id="livspoeng"></h2>
+            </div>
+            <div id="tidigjenboks">
+                <h2 id="tidigjen"></h2>
+            </div>
+            <div id="poengboks">
+                <h2 id="poeng"></h2>
+            </div>
+            <div id="vaapenknapperboks">
+                <div id="knapp1">godteripistol</div>
+                <div id="knapp2">laservåpene</div>
+                <div id="knapp3">magivåpen</div>
+            </div>
+        </div>
+        <div id="spillramme">
+            <img src="bakgrunn.jpg" id="bakgrunnbilde">
+            <div id="spillerboks">
+                <img src="spiller.jpg" id="spillerbilde">
+            </div>
+            <div id="animasjonerboks"></div>
+            <div id="fiendeboks">
+                <div id="fiendebilde">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="tapt" style="display: none;">
+        <h1>Du tapte</h1>
+    </div>
+    <div id="vunnet" style="display: none;">
+        <h1>Du vant</h1>
+
+        <script>
+            //variabler for alle elementene(div, bilder, tekst osv)
+            var lettnivaaEL = document.querySelector("#lettnivaa");
+            var middelsnivaaEL = document.querySelector("#middelsnivaa");
+            var vanskelignivaaEL = document.querySelector("#vanskelignivaa");
+            var startmenytekstEL = document.querySelector("#startmenytekst");
+            var startmenyknapperEL = document.querySelector("#startmenyknapper");
+            var skjermEL = document.querySelector("#skjerm");
+            var taptEl = document.querySelector("#tapt");
+            var vunnetEl = document.querySelector("#vunnet");
+
+            //eventlisteners for alle vanskelighetsnivåknappene
+            lettnivaaEL.addEventListener("click", lettnivaa);
+            middelsnivaaEL.addEventListener("click", middelsnivaa);
+            vanskelignivaaEL.addEventListener("click", vanskelignivaa);
+
+            //flere variabler for elementer
+            var livspoengEl = document.querySelector("#livspoeng");
+            var tidigjenEl = document.querySelector("#tidigjen");
+            var poengEl = document.querySelector("#poeng");
+
+            //denne variabelen er for å velge hvilket monster som skal dukke opp
+            var tilfeldigfiende = Math.floor(Math.random() * 3) + 1;
+            console.log(tilfeldigfiende);
+
+            //variabler for hvor mye livspoeng, poeng og tid du har før spillet starter
+            var livspoeng = 1;
+            var poeng = 0;
+            var tid = 60;
+
+            //funksjonene gjør at startmenyen forsvinner og at spillet starter
+            function lettnivaa() {
+                startmenytekstEL.style.display = "none";
+                startmenyknapperEL.style.display = "none";
+                skjermEL.style.display = "block";
+                lettspill();
+
+            }
+            function middelsnivaa() {
+                startmenytekstEL.style.display = "none";
+                startmenyknapperEL.style.display = "none";
+                skjermEL.style.display = "block";
+                middelsspill();
+            }
+            function vanskelignivaa() {
+                startmenytekstEL.style.display = "none";
+                startmenyknapperEL.style.display = "none";
+                skjermEL.style.display = "block";
+                vanskeligspill();
+            }
+
+
+            //funksjoner for de forskjellige vanskelighetsnivåene
+            //funksjonene setter inn hvor mye livspoeng du har og starter å telle ned fra 60 sekunder
+            function lettspill() {
+                //oppdaterer hvor mye livspoeng du har før spillet starter på lett nivå
+                livspoeng = 10
+
+                //Setter inn hvor mye livspoeng, poeng og tid du ha
+                livspoengEl.innerHTML = "Livspoeng: " + livspoeng;
+                poengEl.innerHTML = "Poeng: " + poeng;
+                tidigjenEl.innerHTML = "Tid igjen: " + tid;
+
+                //timeren som teller ned fra 60 sekunder
+                const timer = setInterval(function () {
+                    tid--;
+                    tidigjenEl.innerHTML = "Tid igjen: " + tid;
+                    if (tid === 0) {
+                        clearInterval(timer);
+                        tidigjenEl.innerHTML = "Tiden er ute!";
+                    }
+                }, 1000);
+
+                //etter å ha kjørt alt over så kjøres den mer generelle funksjonen for spillet
+                spill()
+            }
+            function middelsspill() {
+                //oppdaterer hvor mye livspoeng du har før spillet starter på middels nivå
+                livspoeng = 5
+                var poeng = 0;
+                var tid = 60;
+                livspoengEl.innerHTML = "Livspoeng: " + livspoeng;
+                poengEl.innerHTML = "Poeng: " + poeng;
+                tidigjenEl.innerHTML = "Tid igjen: " + tid;
+                const timer = setInterval(function () {
+                    tid--;
+                    tidigjenEl.innerHTML = "Tid igjen: " + tid;
+                    if (tid === 0) {
+                        clearInterval(timer);
+                        tidigjenEl.innerHTML = "Tiden er ute!";
+                    }
+                }, 1000);
+                spill()
+            }
+            function vanskeligspill() {
+                //oppdaterer hvor mye livspoeng du har før spillet starter på vanskelig nivå
+                livspoeng = 1
+                livspoengEl.innerHTML = "Livspoeng: " + livspoeng;
+                poengEl.innerHTML = "Poeng: " + poeng;
+                tidigjenEl.innerHTML = "Tid igjen: " + tid;
+                const timer = setInterval(function () {
+                    tid--;
+                    tidigjenEl.innerHTML = "Tid igjen: " + tid;
+                    if (tid === 0) {
+                        clearInterval(timer);
+                        tidigjenEl.innerHTML = "Tiden er ute!";
+                    }
+                }, 1000);
+                spill()
+            }
+            function spill() {
+                //variabler for alle elementene
+                var fiende = document.querySelector("#fiendeboks");
+                var fiendebilde = document.querySelector("#fiendebilde");
+                var knapp1El = document.querySelector("#knapp1");
+                var knapp2El = document.querySelector("#knapp2");
+                var knapp3El = document.querySelector("#knapp3");
+
+                //om livspoeng eller tid er 0 så forsvinner spillet og du får opp en tekst som sier at du tapte
+                if (livspoeng === 0 || tid === 0) {
+                    skjermEL.style.display = "none";
+                    taptEl.style.display = "block";
+                }
+                //om livspoeng og tid ikke er 0 så kjøres spillet
+                else {
+
+                    //setter inn hvilket monster som skal dukke opp basert på tilfeldigfiende variabelen
+                    if (tilfeldigfiende === 1) {
+                        fiendebilde.innerHTML = "<img src='monster1.jpg' >";
+                    }
+                    else if (tilfeldigfiende === 2) {
+                        fiendebilde.innerHTML = "<img src='monster2.jpg' >";
+                    }
+                    else if (tilfeldigfiende === 3) {
+                        fiendebilde.innerHTML = "<img src='monster3.jpg'>";
+                    }
+                    //eventlisteners for alle knappene
+                    knapp1El.addEventListener("click", knapp1);
+                    knapp2El.addEventListener("click", knapp2);
+                    knapp3El.addEventListener("click", knapp3);
+                }
+                //om poeng er 30 så forsvinner spillet og du får opp en tekst som sier at du vant
+                if (poeng === 30) {
+                    skjermEL.style.display = "none";
+                    vunnetEl.style.display = "block";
+                }
+            }
+            //funksjonene for knappene
+            function knapp1() {
+                //om tilfeldigfiende er 1 så får du 1 poeng
+                if (tilfeldigfiende === 1) {
+                    poeng = poeng + 1;
+                    poengEl.innerHTML = "Poeng: " + poeng;
+                }
+                //om tilfeldigfiende er 2 så mister du 1 livspoeng
+                else if (tilfeldigfiende === 2) {
+                    livspoeng = livspoeng - 1;
+                    livspoengEl.innerHTML = "Livspoeng: " + livspoeng;
+                }
+                //om tilfeldigfiende er 3 så mister du 1 livspoeng
+                else if (tilfeldigfiende === 3) {
+                    livspoeng = livspoeng - 1;
+                    livspoengEl.innerHTML = "Livspoeng: " + livspoeng;
+                }
+                //tilfeldigfiende variabelen blir oppdatert til et nytt tall mellom 1 og 3
+                tilfeldigfiende = Math.floor(Math.random() * 3) + 1;
+                //spill funksjonen kjøres på nytt
+                spill();
+            }
+
+
+            //samme prinsipp som funksjon for knapp1
+            function knapp2() {
+                if (tilfeldigfiende === 1) {
+                    livspoeng = livspoeng - 1;
+                    livspoengEl.innerHTML = "Livspoeng: " + livspoeng;
+                }
+                else if (tilfeldigfiende === 2) {
+                    poeng = poeng + 1;
+                    poengEl.innerHTML = "Poeng: " + poeng;
+                }
+                else if (tilfeldigfiende === 3) {
+                    livspoeng = livspoeng - 1;
+                    livspoengEl.innerHTML = "Livspoeng: " + livspoeng;
+                }
+                tilfeldigfiende = Math.floor(Math.random() * 3) + 1;
+                spill();
+            }
+
+            //samme prinsipp som funksjon for knapp1
+            function knapp3() {
+                if (tilfeldigfiende === 1) {
+                    livspoeng = livspoeng - 1;
+                    livspoengEl.innerHTML = "Livspoeng: " + livspoeng;
+                }
+                else if (tilfeldigfiende === 2) {
+                    livspoeng = livspoeng - 1;
+                    livspoengEl.innerHTML = "Livspoeng: " + livspoeng;
+                }
+                else if (tilfeldigfiende === 3) {
+                    poeng = poeng + 1;
+                    poengEl.innerHTML = "Poeng: " + poeng;
+                }
+                tilfeldigfiende = Math.floor(Math.random() * 3) + 1;
+                spill();
+            }
+        </script>
+</body>
+
+</html>

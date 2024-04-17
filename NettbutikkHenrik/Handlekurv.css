@@ -1,0 +1,39 @@
+body {
+    margin: 5px;
+    padding: 0;
+    font-family: 'Sans-serif';
+    background-color: lavender;
+}
+
+header {
+    background-color: lavender;
+    color: #333;
+    padding: 10px;
+    text-align: center;
+    border-radius: 25px;
+    font-size: 25px;
+}
+
+div {
+    background-color: #fff;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin: 10px;
+    box-shadow: 0 0 10px lightgrey;
+    color: #333;
+    border-radius: 25px;
+}
+
+.kvitteringknapp {
+    background-color: lightgreen;
+    padding: 20px;
+    margin: 0px;
+    width: 250px;
+    box-shadow: 0 0 10px lightgrey;
+    color: blue;
+    text-decoration: none;
+    font-size: large;
+    border-radius: 25px;
+}

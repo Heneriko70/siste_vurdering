@@ -1,0 +1,205 @@
+#startmeny {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 100;
+}
+
+#hovedoverskrift {
+    font-family: 'Roboto', sans-serif;
+    font-size: 3em;
+    color: black;
+    margin: 0;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    border-radius: 25px;
+    width: 100%;
+    background-color: antiquewhite;
+}
+
+#startmenytekst {
+    width: 100%;
+    background-color: #ffffff;
+}
+
+.info {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.5em;
+    color: black;
+    margin: 0;
+    padding: 15px;
+    border-radius: 25px;
+}
+
+#startmenyknapper {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    background-color: #ffffff;
+}
+
+#lettnivaa {
+    width: 40%;
+    height: 33%;
+    background-color: lightcoral;
+}
+
+#middelsnivaa {
+    width: 40%;
+    height: 33%;
+    background-color: cyan;
+}
+
+#vanskelignivaa {
+    width: 40%;
+    height: 33%;
+    background-color: lightskyblue
+}
+
+#skjerm {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 0;
+}
+
+#infobar {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    font-family: 'Roboto', sans-serif;
+    background-color: #ffffff;
+    text-align: center;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 20%;
+}
+
+#livspoengboks {
+    width: 25%;
+    height: 100%;
+}
+
+#tidigjenboks {
+    width: 25%;
+    height: 100%;
+}
+
+#poengboks {
+    width: 25%;
+    height: 100%;
+}
+
+#vaapenknapperboks {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 25%;
+    height: 100%;
+}
+
+.vaapen {
+    width: 33%;
+    height: 100%;
+}
+
+#knapp1 {
+    background-color: aliceblue;
+    width: 33.3%;
+    height: 100%;
+
+}
+
+#knapp2 {
+    background-color: antiquewhite;
+    width: 33.3%;
+    height: 100%;
+}
+
+#knapp3 {
+    background-color: aqua;
+    width: 33.3%;
+    height: 100%;
+}
+
+#spillramme {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 80%;
+    left: 0;
+    bottom: 0;
+    z-index: 100;
+}
+
+#spillerboks {
+    width: 25%;
+    height: 100%;
+    background-color: transparent;
+}
+
+#animasjonerboks {
+    width: 50%;
+    height: 100%;
+    background-color: transparent;
+}
+
+#fiendeboks {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    width: 25%;
+    height: 100%;
+    background-color: transparent;
+}
+
+#fiendebilde img {
+    width: 100%;
+    height: 100%;
+
+}
+
+#spillerbilde {
+    width: 100%;
+    height: 100%;
+}
+
+#tapt {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    text-align: center;
+    background-color: #ffffff;
+    font-size: 2em;
+}
+
+#vunnet {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    text-align: center;
+    background-color: #ffffff;
+    font-size: 2em;
+}
+
+#bakgrunnbilde {
+    width: 100%;
+    height: 80%;
+    position: absolute;
+    z-index: -100;
+}

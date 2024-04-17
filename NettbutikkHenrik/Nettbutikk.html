@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>Nettbutikk</title>
+    <link rel="stylesheet" href="Nettbutikk.css">
+    <meta charset="UTF-8">
+</head>
+
+<body>
+    <header>
+        <h1>Henriks tyggis butikk</h1>
+    </header>
+    <div class="div1">
+        <h2>Velg hvilken vare du vil ha:</h2>
+        <img class="bilde1" src="tyggis.jfif" alt="tyggis">
+        <p></p>
+        <button class="Kjopknapp">Kjøp</button>
+
+
+    </div>
+
+    <script>
+        var KjopknappEl = document.querySelector(".Kjopknapp");
+        var pEl = document.querySelector("p");
+        KjopknappEl.addEventListener("click", Handlekurv);
+
+        function Handlekurv() {
+            window.location.href = "Handlekurv.html";
+        }
+
+    </script>
+</body>
+
+</html>

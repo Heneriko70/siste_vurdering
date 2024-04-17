@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Handlekurv</title>
+    <link rel="stylesheet" href="Handlekurv.css">
+    <meta charset="UTF-8">
+</head>
+
+<body>
+    <header>
+        <h1>Handlekurv</h1>
+    </header>
+
+    <div>
+        <h2>Skriv inn navnet ditt:</h2>
+        <input class="navn" type="text">
+        <h2>Hvor mange tyggis vil du ha?</h2>
+        <input class="leggtil" type="number">
+        <h3>Kvittering:</h3>
+        <button class="kvitteringknapp" onclick="navn()">Trykk her</button>
+        <p></p>
+    </div>
+
+    <script>
+        var navnEl = document.querySelector(".navn");
+        var leggtilEl = document.querySelector(".leggtil");
+        var pEl = document.querySelector("p");
+        var navnknappEl = document.querySelector(".kviteringknapp");
+
+        function navn() {
+            var navn = navnEl.value;
+            var leggtil = leggtilEl.value;
+            pEl.innerHTML = "Hei " + navn + ", du har bestilt " + leggtil + " tyggis og det koster " + leggtil * 10 + "kr";
+            if (leggtil > 5) {
+                pEl.innerHTML = "Du har bestilt for mange tygiss, det er maks 5 per kunde";
+            }
+            if (leggtil < 1) {
+                pEl.innerHTML = "Du må bestille minst 1 tyggis";
+            }
+        }
+    </script>
+</body>
+
+</html>
